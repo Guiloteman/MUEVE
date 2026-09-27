@@ -510,3 +510,4 @@ C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-wind
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-windows10.0.19041.0\win-x64\AppFletesMueve.sourcelink.json

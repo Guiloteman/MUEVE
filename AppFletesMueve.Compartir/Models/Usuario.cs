@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AppFletesMueve.Models
+namespace AppFletesMueve.Compartir.Models
 {
     public class Usuario
     {
@@ -20,7 +20,6 @@ namespace AppFletesMueve.Models
 
         public string Password { get; set; } = string.Empty;
 
-        // CLIENTE o CONDUCTOR
         public string TipoUsuario { get; set; } = string.Empty;
     }
 }

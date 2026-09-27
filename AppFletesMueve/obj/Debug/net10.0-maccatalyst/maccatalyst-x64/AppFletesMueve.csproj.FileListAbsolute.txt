@@ -305,3 +305,4 @@ C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-macc
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-maccatalyst\maccatalyst-x64\AppFletesMueve.pdb
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-maccatalyst\maccatalyst-x64\AppFletesMueve.genruntimeconfig.cache
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-maccatalyst\maccatalyst-x64\ref\AppFletesMueve.dll
+C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve\obj\Debug\net10.0-maccatalyst\maccatalyst-x64\AppFletesMueve.sourcelink.json

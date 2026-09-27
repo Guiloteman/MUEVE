@@ -1,4 +1,8 @@
-﻿namespace AppFletesMueve.Api.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AppFletesMueve.Api.Models
 {
     public class Usuario
     {

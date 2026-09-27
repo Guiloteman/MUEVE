@@ -163,4 +163,4 @@ C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\bin\Debug\net10.0\
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\guile\source\repos\AppFletesMueve\AppFletesMueve.Api\obj\Debug\net10.0\AppFletesMueve.Api.sourcelink.json

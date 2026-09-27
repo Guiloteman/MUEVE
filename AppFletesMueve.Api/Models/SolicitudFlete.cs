@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AppFletesMueve.Models
+namespace AppFletesMueve.Api.Models
 {
     public class SolicitudFlete
     {

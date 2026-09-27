@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AppFletesMueve.Models
+namespace AppFletesMueve.Compartir.Models
 {
     public class TipoCarga
     {
