@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\guile\\source\\repos\\AppFletesMueve\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C37558C7-15D4-76A6-F9A2-E8029D383E82}|AppFletesMueve\\AppFletesMueve.csproj|c:\\users\\guile\\source\\repos\\appfletesmueve\\appfletesmueve\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C37558C7-15D4-76A6-F9A2-E8029D383E82}|AppFletesMueve\\AppFletesMueve.csproj|solutionrelative:appfletesmueve\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +39,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\guile\\source\\repos\\AppFletesMueve\\AppFletesMueve\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "AppFletesMueve\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\guile\\source\\repos\\AppFletesMueve\\AppFletesMueve\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "AppFletesMueve\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T18:45:24.789Z",
+              "EditorCaption": ""
             }
           ]
         },

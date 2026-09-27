@@ -1,58 +1,78 @@
 using AppFletesMueve.Models;
 using AppFletesMueve.Services;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AppFletesMueve.Views;
-
-public partial class LoginPage : ContentPage
+namespace AppFletesMueve.Views
 {
-    private readonly UsuarioService _usuarioService;
-	public LoginPage()
-	{
-		InitializeComponent();
-		_usuarioService = new UsuarioService();
-	}
-
-    private async void Ingresar_Clicked(object sender, EventArgs e)
+    public partial class LoginPage : ContentPage
     {
-        var usuario = await _usuarioService.Login(
-            txtEmail.Text,
-            txtPassword.Text);
+        private readonly UsuarioService _usuarioService;
 
-        if (usuario == null)
+        // 1. Constructor por defecto (para cuando haces "new LoginPage()" al cerrar sesión)
+        public LoginPage()
         {
-            await DisplayAlert(
-                "Error",
-                "Usuario o contraseña incorrectos",
-                "Aceptar");
-
-            return;
+            InitializeComponent();
+            try
+            {
+                var services = Application.Current?.Handler?.MauiContext?.Services;
+                _usuarioService = services?.GetService<UsuarioService>() ?? throw new InvalidOperationException("No se pudo resolver UsuarioService");
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+                DisplayAlert("Error", "No se pudo obtener el servicio de usuario: " + ex.Message, "Aceptar");
+            }
         }
-        SesionUsuario.UsuarioId = usuario.UsuarioId;
-        SesionUsuario.Nombre = usuario.Nombre;
-        SesionUsuario.TipoUsuario = usuario.TipoUsuario;
 
-        Preferences.Set("UsuarioId", usuario.UsuarioId);
-        Preferences.Set("Nombre", usuario.Nombre);
-        Preferences.Set("Apellido", usuario.Apellido);
-        Preferences.Set("Email", usuario.Email);
-        Preferences.Set("TipoUsuario", usuario.TipoUsuario);
-
-        if (usuario.TipoUsuario == "CLIENTE")
+        public LoginPage(UsuarioService usuarioService)
         {
-            Application.Current.MainPage =
-                new NavigationPage(
-                    new MainPage());
+            InitializeComponent();
+            _usuarioService = usuarioService;
         }
-        else
-        {
-            Application.Current.MainPage =
-                new NavigationPage(
-                    new HomeConductor());
-        }
-    }
 
-    private async void Registro_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new RegistroPage(_usuarioService));
+        private async void Ingresar_Clicked(object sender, EventArgs e)
+        {
+            var usuario = await _usuarioService.Login(
+                txtEmail.Text,
+                txtPassword.Text);
+
+            if (usuario == null)
+            {
+                await DisplayAlert(
+                    "Error",
+                    "Usuario o contraseña incorrectos",
+                    "Aceptar");
+
+                return;
+            }
+
+            SesionUsuario.UsuarioId = usuario.UsuarioId;
+            SesionUsuario.Nombre = usuario.Nombre;
+            SesionUsuario.TipoUsuario = usuario.TipoUsuario;
+
+            Preferences.Set("UsuarioId", usuario.UsuarioId);
+            Preferences.Set("Nombre", usuario.Nombre);
+            Preferences.Set("Apellido", usuario.Apellido);
+            Preferences.Set("Email", usuario.Email);
+            Preferences.Set("TipoUsuario", usuario.TipoUsuario);
+
+            if (usuario.TipoUsuario == "CLIENTE")
+            {
+                Application.Current.MainPage =
+                    new NavigationPage(
+                        new MainPage());
+            }
+            else
+            {
+                Application.Current.MainPage =
+                    new NavigationPage(
+                        new HomeConductor());
+            }
+        }
+
+        private async void Registro_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistroPage(_usuarioService));
+        }
     }
 }

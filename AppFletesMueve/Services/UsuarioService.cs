@@ -1,61 +1,59 @@
-﻿using System.Net.Http.Json;
+﻿using AppFletesMueve.Data;
 using AppFletesMueve.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppFletesMueve.Services
 {
     public class UsuarioService
     {
-        private readonly HttpClient _httpClient;
+        private readonly AppDbContext _context;
 
-        private const string ApiUrl = " https://narrow-drama-lloyd-however.trycloudflare.com/api/";
-
-        public UsuarioService()
+        public UsuarioService(AppDbContext context)
         {
-            _httpClient = new HttpClient();
+            _context = context;
         }
 
+        // Fíjate aquí: es Task
         public async Task<bool> RegistrarUsuario(Usuario usuario)
         {
             try
             {
-                var response = await _httpClient.PostAsJsonAsync(
-                    ApiUrl + "Usuario",
-                    usuario);
+                var existe = await _context.Usuarios
+                    .FirstOrDefaultAsync(u => u.Email == usuario.Email);
 
-                var contenido = await response.Content.ReadAsStringAsync();
+                if (existe != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("El usuario ya existe.");
+                    return false;
+                }
 
-                System.Diagnostics.Debug.WriteLine(
-                    $"API STATUS: {(int)response.StatusCode}");
+                _context.Usuarios.Add(usuario);
+                await _context.SaveChangesAsync();
 
-                System.Diagnostics.Debug.WriteLine(
-                    $"API RESPUESTA: {contenido}");
-
-                return response.IsSuccessStatusCode;
+                return true;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(
-                    $"ERROR API: {ex}");
-
-                throw;
+                System.Diagnostics.Debug.WriteLine($"ERROR DB REGISTRO: {ex.Message}");
+                return false;
             }
         }
 
+        // Fíjate aquí: es Task
         public async Task<Usuario?> Login(string email, string password)
         {
-            var response = await _httpClient.PostAsJsonAsync(
-                ApiUrl + "Usuario/login",
-                new
-                {
-                    Email = email,
-                    Password = password
-                });
+            try
+            {
+                var usuario = await _context.Usuarios
+                    .FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
 
-            if (!response.IsSuccessStatusCode)
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ERROR DB LOGIN: {ex.Message}");
                 return null;
-
-            return await response.Content
-                .ReadFromJsonAsync<Usuario>();
+            }
         }
     }
 }
